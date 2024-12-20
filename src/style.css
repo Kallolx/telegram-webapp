@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-white antialiased overflow-hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Add some ambient background animation */
+.bg-dark {
+  background: radial-gradient(circle at 50% 0%, #FF4D4D22, transparent 70%),
+              radial-gradient(circle at 0% 100%, #6B4DFF22, transparent 70%),
+              #000000;
+}
+
+@layer components {
+  .planet-button {
+    @apply w-32 h-32 rounded-full bg-transparent 
+           transition-all duration-200 ease-in-out
+           relative flex items-center justify-center;
+  }
+
+  .planet-image {
+    @apply w-full h-full object-contain
+           transition-transform duration-100 ease-in-out;
+  }
+
+  .planet-button:active .planet-image {
+    @apply scale-95;
+  }
+
+  .progress-bar {
+    @apply w-full bg-gray-700 rounded-full h-4 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-blue-500 transition-all duration-300;
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center justify-center
+           text-xs text-gray-400 py-2
+           transition-colors duration-200;
+  }
+
+  .nav-item.active {
+    @apply text-blue-400;
+  }
+
+  .user-card {
+    @apply bg-gray-800/50 backdrop-blur-md rounded-xl p-4 mb-4;
+  }
+
+  .farming-card {
+    @apply bg-gray-800/50 backdrop-blur-md rounded-xl p-4 mt-4;
+  }
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
